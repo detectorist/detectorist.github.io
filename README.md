@@ -1,1 +1,1 @@
-# detectorist.github.io
+# Detectorist

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detectorist</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      #bg {
+        position: fixed;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+      }
+
+      footer {
+        position: fixed;
+        bottom: 1rem;
+        width: 100%;
+        text-align: center;
+        color: silver;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 0.75rem;
+      }
+
+      h1 {
+        position: fixed;
+        top: 33.333%;
+        right: 0;
+        background: black;
+        color: white;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 5rem;
+        font-weight: normal;
+        padding: 0.5rem 1.5rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bg"></div>
+    <h1>Detectorist</h1>
+    <footer>Copyright &copy; MMXXVI</footer>
+    <script>
+      const images = [
+        "img/spring.jpg",
+        "img/summer.jpg",
+        "img/autumn.jpg",
+        "img/winter.jpg",
+      ];
+      let current = Math.floor(Math.random() * images.length);
+      const bg = document.getElementById("bg");
+      bg.style.backgroundImage = "url(" + images[current] + ")";
+      document.querySelector("h1").addEventListener("click", () => {
+        current = (current + 1) % images.length;
+        bg.style.backgroundImage = "url(" + images[current] + ")";
+      });
+    </script>
+  </body>
+</html>
